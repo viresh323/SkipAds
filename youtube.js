@@ -22,8 +22,18 @@ var observeYoutubePlayer = (function () {
   }; 
 })();
 
+// Function to close Ads
+var closeAds = function(){
+
+  let ads = document.getElementsByClassName("video-ads ytp-ad-module");
+   // check if element exists
+   if (ads.length>0) {
+    ads[0].style.display = "none";
+    console.log("Closed Ads");
+  }
+}
 // Function to click the Skip Ad button
-var clickSkipAdButton = function (ytPlayer) {
+var clickSkipAdButton = function () {
   let elements = document.getElementsByClassName(
     "ytp-ad-skip-button ytp-button"
   );
@@ -35,6 +45,12 @@ var clickSkipAdButton = function (ytPlayer) {
   }
 };
 
+var processSkip = function()
+{
+  clickSkipAdButton();
+  closeAds();
+}
+
 var getYoutubePlayer = function()
 {
     return document.getElementById("ytd-player");
@@ -44,7 +60,7 @@ var getYoutubePlayer = function()
 var startObserving = function()
 {
     var youtubePlayer = getYoutubePlayer();
-    observeYoutubePlayer(youtubePlayer, clickSkipAdButton);
+    observeYoutubePlayer(youtubePlayer, processSkip);
 }
 
 var initApp = function()
