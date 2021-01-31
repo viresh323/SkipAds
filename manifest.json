@@ -1,12 +1,18 @@
 {
     "name": "Skip Ads",
     "version": "1.0",
-    "description": "To skip the ads automatically as soon as advertisement finishes",
+    "description": "To skip/hide the ads automatically as soon as advertisement finishes",
     "manifest_version": 2,
     "content_scripts":[
         {
           "matches": ["*://*.youtube.com/*"],
           "js":["youtube.js"],
+          "all_frames": true,
+          "run_at": "document_end"
+        },
+        {
+          "matches": ["*://*.tradingview.com/*"],
+          "js":["jquery.js","tradingview.js"],
           "all_frames": true,
           "run_at": "document_end"
         }
