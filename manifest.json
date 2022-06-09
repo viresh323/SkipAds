@@ -2,7 +2,7 @@
     "name": "Skip Ads",
     "version": "1.0",
     "description": "To skip/hide the ads automatically as soon as advertisement finishes",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "content_scripts":[
         {
           "matches": ["*://*.youtube.com/*"],
